@@ -1,0 +1,43 @@
+body, html {
+    height: 100%;
+    margin: 0 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.button {
+    padding: 15px;
+    width: 300px;
+    font-size: 18px;
+    background-color: #FFCC00; /* Pokemon yellow */
+    color: #0075BE; /* Pokemon blue */
+    border-width: 2px;
+    border: 2px solid #0075BE;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0075BE;
+    color: #FFCC00;
+}
+
+.pokemonImg {
+    height: 20vh;
+    padding: 30px;
+}
+
+#catchingScreen, #fightScreen, #pokemonField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.battleRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

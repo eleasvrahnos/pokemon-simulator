@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Simulator</title>
+    <link rel="icon" href="https://www.freeiconspng.com/thumbs/pokeball-png/pokeball-pokemon-ball-picture-11.png">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div id="startScreen">
+        <h1>Pokémon Simulator</h1>
+        <button id="startButton" class="button">Start</button>
+        <h2>Created by Eleas Vrahnos</h2>
+    </div>
+    <h1 id="playerCreationNull" style="display: none;">Your player has already been created!</h1>
+    <div id="playerCreation" style="display: none;">
+        <h1>Please enter your Trainer name!</h1>
+        <input type="text" id="inputPlayerName" placeholder="Enter name...">
+        <button id="confirmButtonName">Confirm</button>
+    </div>
+    <div id="tutorialContainer" style="display: none;">
+        <div id="tutorialText">
+            <h1>Welcome to the Pokémon Simulator, <span id="trainerNamePlaceholder"></span>!</h1>
+            <p>You will start with a single random Pokémon and go through a number of phases. This cycle of phases will happen a total of 5 times. Complete all 5 cycles and you win the game!</p>
+            <h2>Phase 1: CATCHING</h2>
+            <p>3 Pokémon with randomized moves will appear, and you will have 1 chance to catch each. If successful, the Pokémon is added to your party. If your party is already full of 6 Pokémon, you will have the opportunity to release a Pokémon from your party. These Pokémon will fight alongside you in future gym battles.</p>
+            <h2>Phase 2: GYM BATTLES</h2>
+            <p>You will go against three Pokémon trainers of a chosen gym type, each with Pokémon matching the type of the gym you are fighting in. Defeat 2 of the 3 gym trainers to get the gym badge. If you fail, it's game over!</p>
+        </div>
+        <button id="tutorialButton" class="button">OK</button>
+    </div>
+    <h1 id="simulatorStart" style="display: none;">SIMULATOR START!</h1>
+    <div id="startingInfo" style="display: none;">
+        <h1 id="startingPokemonText">Your starting Pokémon is <span id="pokemonNamePlaceholder"></span>!</h1>
+        <img id="startingPokemonImg" class="pokemonImg" src="">
+    </div>
+    <div id="catchingPhase">
+        <h1 id="catchingPhaseStart" style="display: none;">CATCHING PHASE START!</h1>
+        <div id="catchingScreen" style="display: none;">
+            <h1>You come across a wild <span id="wildPokemonNamePlaceholder"></span>! Would you like to try and catch it, or run?</h1>
+            <img id="wildPokemonImg" class="pokemonImg" src="">
+            <div id="catchButtonOptions">
+                <button id="catchButton" class="button">Catch</button>
+                <button id="runButton" class="button">Run</button>
+            </div>
+        </div>
+        <div id="catchDecision">
+            <div id="catchThrow" style="display: none;">
+                <h1 id="pokeballText">You throw a Pokéball at it!</h1>
+                <img id="pokeball" class="pokemonImg" src="https://cdn-1.webcatalog.io/catalog/pokemon-database/pokemon-database-icon-filled-256.webp?v=1675613153834">
+            </div>
+            <div id="leavePokemon" style="display: none;">
+                <h1 id="leavePokemonPrompt"> You already have a full party! Choose a Pokémon to leave your party, this decision is final on button click.</h1>
+                <select id="dropdownRelease">
+                </select>
+                <button id="confirmButton">Confirm</button>
+            </div>
+        </div>
+        <div id="runDecision" style="display: none;">
+            <h1>You ran away!</h1>
+        </div>
+    </div>
+    <div id="gymBattlePhase">
+        <h1 id="gymBattlePhaseStart" style="display: none;">GYM BATTLE PHASE START!</h1>
+        <h1 id="gymBattleTypeReveal" style="display: none;">You will now fight within the <span id="gymTypePlaceholder"></span>-type Gym!</h1>
+        <div id="preBattle" style="display: none;">
+            <h1 id="preBattlePreface">You are about to fight Trainer <span id="trainerNamePlaceholder"></span> with their <span id="trainerPokemonNamePlaceholder"></span>, which Pokemon would you like to send out?</h1>
+            <select id="dropdownSendout">
+            </select>
+            <button id="confirmButton2">Confirm</button>
+        </div>
+        <h1 id="fightIntro" style="display: none;">FIGHT!</h1>
+        <div id="fightScreen" style="display: none;">
+            <h1 id="battleText"></h1>
+            <div id="pokemonField">
+                <div id="enemyPokemon" class="battleRow">
+                    <img id="enemyPokemonImg" class="pokemonImg" src="">
+                    <h1 id="hp2">HP: <span id="hp2count"></span></h1>
+                </div>
+                <div id="allyPokemon" class="battleRow">
+                    <img id="allyPokemonImg" class="pokemonImg" src="">
+                    <h1 id="hp1">HP: <span id="hp1count"></span></h1>
+                </div>
+            </div>
+            <div id="moveset">
+            </div>
+        </div>
+        <div id="lossScreen" style="display: none;">
+            <h1>You have lost the game...</h1>
+            <button id="retryButton" class="button">Retry</button>
+        </div>
+        <div id="winScreen" style="display: none;">
+            <h1>You beat the <span id="gymTypeWinPlaceholder"></span>-type Gym! You have earned the <span id="badgeNamePlaceholder"></span> Badge!</h1>
+            <button id="continueButton" class="button">Continue</button>
+        </div>
+    </div>
+    <div id="playerWin" style="display: none;">
+        <h1>Congratulations, you beat the simulator! Click below to download your winning party information. Thanks for playing!</h1>
+        <h1>Badges Won: <span id="badgesWonList"></span></h1>
+        <button id="downloadButton" class="button">Download .csv</button>
+    </div>
+</body>
+</html>
+
+<script src="static/script.js"></script>
